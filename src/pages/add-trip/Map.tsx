@@ -59,6 +59,10 @@ const Map = () => {
         iconAnchor: [12, 41],
     });
 
+    const updatePlaces = (updatedPlaces: Place[]) => {
+        setPlaces(updatedPlaces);
+    };
+
     return (
         <div className="flex h-screen">
             {/* Left Section */}
@@ -77,7 +81,6 @@ const Map = () => {
                     variant="contained"
                     color="primary"
                     onClick={handleSearch}
-                    disabled={!search}
                 >
                     Search
                 </Button>
@@ -105,7 +108,7 @@ const Map = () => {
                     </Box>
                 )}
                 <Divider />
-                <PlacesList places={places} />
+                <PlacesList places={places}  onUpdate={updatePlaces} />
             </Box>
 
             {/* Map Section */}
