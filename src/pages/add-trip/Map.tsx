@@ -23,11 +23,12 @@ import { Place } from "../../models/Place";
 import PlacesList from "./components/PlacesList";
 
 interface MapProps {
-    onNext: () => void;
+    onNext: (places: Place[]) => void;
+    places: Place[];
 }
 
-const Map: React.FC<MapProps> = ({ onNext }) => {
-    const [places, setPlaces] = useState<Place[]>([]);
+const Map: React.FC<MapProps> = ({ onNext, places: initialPlaces }) => {
+    const [places, setPlaces] = useState<Place[]>(initialPlaces);
     const [search, setSearch] = useState("");
     const [searchResult, setSearchResult] = useState<Place | null>(null);
 
@@ -132,7 +133,7 @@ const Map: React.FC<MapProps> = ({ onNext }) => {
                             variant="contained"
                             color="success"
                             fullWidth
-                            onClick={onNext}
+                            onClick={() => onNext(places)}
                         >
                             <div className="flex items-center justify-center space-x-2">
                                 <MapIcon />

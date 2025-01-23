@@ -2,6 +2,8 @@ import React from 'react';
 import { Stepper, Step, StepLabel, Button, Typography, Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Map from './Map'; // Assuming you have a Map component
+import SpecifyDetails from './SpecifyDetails'; // Import the new component
+import { Place } from '../../models/Place';
 
 const useStyles = makeStyles({
     root: {
@@ -18,12 +20,12 @@ const useStyles = makeStyles({
 
 const steps = ['Add places', 'Specify details', 'Review trip', 'Trip summary'];
 
-const getStepContent = (stepIndex: number, handleNext: () => void) => {
+const getStepContent = (stepIndex: number, handleNext: (places: Place[]) => void, places: Place[]) => {
     switch (stepIndex) {
         case 0:
-            return <Map onNext={handleNext} />;
+            return <Map onNext={handleNext} places={places} />;
         case 1:
-            return <Map onNext={handleNext} />;
+            return <SpecifyDetails places={places} />;
         // case 2:
         //     return <ReviewTrip />;
         // case 3:
@@ -36,8 +38,10 @@ const getStepContent = (stepIndex: number, handleNext: () => void) => {
 const StepsWrapper: React.FC = () => {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
+    const [places, setPlaces] = React.useState<Place[]>([]);
 
-    const handleNext = () => {
+    const handleNext = (newPlaces: Place[]) => {
+        setPlaces(newPlaces);
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
 
@@ -47,6 +51,7 @@ const StepsWrapper: React.FC = () => {
 
     const handleReset = () => {
         setActiveStep(0);
+        setPlaces([]);
     };
 
     return (
@@ -78,7 +83,7 @@ const StepsWrapper: React.FC = () => {
                 ) : (
                     <div className='h-full flex flex-col'> 
                         <Box className="flex-1">
-                            {getStepContent(activeStep, handleNext)}
+                            {getStepContent(activeStep, handleNext, places)}
                         </Box>
                         {activeStep !== 0 && (
                             <div className='flex-none'>
@@ -89,7 +94,7 @@ const StepsWrapper: React.FC = () => {
                                 >
                                     Back
                                 </Button>
-                                <Button variant="contained" color="primary" onClick={handleNext} className={classes.button}>
+                                <Button variant="contained" color="primary" onClick={() => handleNext(places)} className={classes.button}>
                                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                                 </Button>
                             </div>
