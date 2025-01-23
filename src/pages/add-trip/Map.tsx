@@ -3,8 +3,6 @@ import { MapContainer, TileLayer, Marker, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import MapIcon from '@mui/icons-material/Map';
-import DeleteIcon from '@mui/icons-material/Delete';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 import {
     Button,
@@ -12,12 +10,6 @@ import {
     Box,
     Typography,
     Divider,
-    ListItem,
-    IconButton,
-    ListItemAvatar,
-    Avatar,
-    ListItemText,
-    List,
 } from "@mui/material";
 import { Place } from "../../models/Place";
 import PlacesList from "./components/PlacesList";
@@ -141,7 +133,6 @@ const Map: React.FC<MapProps> = ({ onNext, places: initialPlaces }) => {
                             </div>
                         </Button>
                     </div>
-
                 )}
             </Box>
 

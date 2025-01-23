@@ -20,16 +20,12 @@ const useStyles = makeStyles({
 
 const steps = ['Add places', 'Specify details', 'Review trip', 'Trip summary'];
 
-const getStepContent = (stepIndex: number, handleNext: (places: Place[]) => void, places: Place[]) => {
+const getStepContent = (stepIndex: number, handleNext: (places: Place[]) => void, places: Place[], handleBack: () => void) => {
     switch (stepIndex) {
         case 0:
             return <Map onNext={handleNext} places={places} />;
         case 1:
-            return <SpecifyDetails places={places} />;
-        // case 2:
-        //     return <ReviewTrip />;
-        // case 3:
-        //     return <TripSummary />;
+            return <SpecifyDetails onNext={handleNext} onBack={handleBack} places={places} />;
         default:
             return 'Unknown step';
     }
@@ -83,9 +79,9 @@ const StepsWrapper: React.FC = () => {
                 ) : (
                     <div className='h-full flex flex-col'> 
                         <Box className="flex-1">
-                            {getStepContent(activeStep, handleNext, places)}
+                            {getStepContent(activeStep, handleNext, places, handleBack)}
                         </Box>
-                        {activeStep !== 0 && (
+                        {/* {activeStep !== 0 && (
                             <div className='flex-none'>
                                 <Button
                                     disabled={activeStep === 0}
@@ -98,7 +94,7 @@ const StepsWrapper: React.FC = () => {
                                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                                 </Button>
                             </div>
-                        )}
+                        )} */}
                     </div>
                 )}
             </div>
