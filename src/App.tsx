@@ -7,7 +7,7 @@ import SignUp from './pages/sign-up/SignUp';
 import AppTheme from './shared-theme/AppTheme';
 import CssBaseline from '@mui/material/CssBaseline';
 import Main from './shared-components/Main';
-import Map from './pages/add-trip/Map';
+import AddTrip from './pages/add-trip/AddTrip';
 
 function App(props: { disableCustomTheme?: boolean }) {
   return (
@@ -17,7 +17,7 @@ function App(props: { disableCustomTheme?: boolean }) {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/main" element={<Main />}>
-            <Route path="map" element={<Map />} />
+            <Route path="map" element={<AddTrip />} />
           </Route>
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
