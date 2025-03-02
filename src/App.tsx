@@ -6,6 +6,7 @@ import AppTheme from './shared-theme/AppTheme';
 import CssBaseline from '@mui/material/CssBaseline';
 import Main from './shared-components/Main';
 import AddTrip from './pages/add-trip/AddTrip';
+import Old from './pages/old/Old';
 
 function App(props: { disableCustomTheme?: boolean }) {
   return (
@@ -18,6 +19,7 @@ function App(props: { disableCustomTheme?: boolean }) {
             <Route path="map" element={<AddTrip />} />
           </Route>
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/old" element={<Old />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
       </Router>
