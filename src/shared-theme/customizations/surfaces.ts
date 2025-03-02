@@ -1,7 +1,7 @@
 import { alpha, Theme, Components } from '@mui/material/styles';
 import { gray } from '../themePrimitives';
+import type {} from '@mui/material/themeCssVarsAugmentation';
 
-/* eslint-disable import/prefer-default-export */
 export const surfacesCustomizations: Components<Theme> = {
   MuiAccordion: {
     defaultProps: {
@@ -22,7 +22,7 @@ export const surfacesCustomizations: Components<Theme> = {
           borderBottom: 'none',
         },
         '&:first-of-type': {
-          borderTopLeftRadius: (theme.vars || theme).shape.borderRadius,
+          borderTopLeftRadius: theme.shape.borderRadius,
           borderTopRightRadius: (theme.vars || theme).shape.borderRadius,
         },
         '&:last-of-type': {

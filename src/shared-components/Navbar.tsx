@@ -1,7 +1,6 @@
 import React, { useState, MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, MenuItem, IconButton, Avatar, Badge, TextField } from '@mui/material';
-import { AccountCircle } from '@mui/icons-material'; // Optional icon for user
 import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
 import userImage from '../assets/account_thumbnail_test.jpg';
 import PelaventureIcon from './PelaventureIcon';

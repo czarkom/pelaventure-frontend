@@ -5,8 +5,7 @@ import {
     Typography,
     IconButton,
     InputAdornment,
-    Button,
-    Divider
+    Button
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';

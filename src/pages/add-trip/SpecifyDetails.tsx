@@ -60,7 +60,7 @@ const SpecifyDetails: React.FC<SpecifyDetailsProps> = ({ onNext, onBack, places 
         });
     }, [places, thumbnails]);
 
-    const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    const handleChange = (panel: string) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
         setExpanded(isExpanded ? panel : false);
     };
 

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Divider from '@mui/material/Divider';
 import AppAppBar from './components/AppAppBar';
 import Hero from './components/Hero';
@@ -9,10 +8,13 @@ import Features from './components/Features';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import AppTheme from './../../shared-theme/AppTheme';
+import CssBaseline from '@mui/material/CssBaseline';
 
-export default function Home() {
+export default function Home(props: { disableCustomTheme?: boolean }) {
   return (
-    <div>
+    <AppTheme {...props}>
+      <CssBaseline enableColorScheme />
       <AppAppBar />
       <Hero />
       <div>
@@ -29,6 +31,6 @@ export default function Home() {
         <Divider />
         <Footer />
       </div>
-    </div>
+    </AppTheme>      
   );
 }

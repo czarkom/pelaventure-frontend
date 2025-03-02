@@ -1,4 +1,3 @@
-import React from 'react';
 import MyIcon from '../assets/pelaventure_logo-removebg.png';
 
 const PelaventureIcon = () => {

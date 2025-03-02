@@ -1,9 +1,8 @@
-import { CssBaseline } from "@mui/material";
 import Navbar from "./Navbar";
 import { Outlet } from "react-router-dom";
 
 
-export default function Main(props: { disableCustomTheme?: boolean }) {
+export default function Main() {
     return (
         <div className="h-screen flex flex-col">
             <Navbar />
